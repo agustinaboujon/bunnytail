@@ -8,7 +8,10 @@ public class Home extends Canvas implements  Runnable{
     private static final int HEIGHT = 800;
     private static final int WIDTH = 800;
     private static JFrame window;
+    private static Thread thread;
+    private static volatile boolean itsOn = false;
     private static final String NAME = "Bunny Tail";
+
 
     public Home(){
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
@@ -23,8 +26,24 @@ public class Home extends Canvas implements  Runnable{
         window.setVisible(true );
     }
 
+    public synchronized void init(){
+        itsOn = true;
+        thread = new Thread(this, "Graphics");
+        thread.start();
+    }
+    public synchronized void stop(){
+        itsOn = false;
+        try{
+            thread.join();
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
+    }
+
     @Override
     public void run() {
-        
+        while(itsOn){
+
+        }
     }
 }
