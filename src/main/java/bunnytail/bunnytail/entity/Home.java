@@ -48,6 +48,19 @@ public class Home extends Canvas implements  Runnable{
         }
     }
     public void update(){
+        keyboard.update();
+        if(keyboard.up){
+            System.out.println("arriba");
+        }
+        if(keyboard.down){
+            System.out.println("abajo");
+        }
+        if(keyboard.left){
+            System.out.println("izquierda");
+        }
+        if(keyboard.right){
+            System.out.println("derecha");
+        }
         aps++;
     }
     public void showIt(){
