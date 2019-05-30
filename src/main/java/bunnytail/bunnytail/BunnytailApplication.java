@@ -1,13 +1,11 @@
 package bunnytail.bunnytail;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+import bunnytail.bunnytail.entity.Home;
 
-@SpringBootApplication
 public class BunnytailApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BunnytailApplication.class, args);
+		Home home = new Home();
 	}
 
 }
