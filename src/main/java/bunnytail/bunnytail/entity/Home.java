@@ -49,18 +49,11 @@ public class Home extends Canvas implements  Runnable{
     }
     public void update(){
         keyboard.update();
-        if(keyboard.up){
-            System.out.println("arriba");
-        }
-        if(keyboard.down){
-            System.out.println("abajo");
-        }
-        if(keyboard.left){
-            System.out.println("izquierda");
-        }
-        if(keyboard.right){
-            System.out.println("derecha");
-        }
+        if(keyboard.up){ System.out.println("arriba"); }
+        if(keyboard.down){ System.out.println("abajo"); }
+        if(keyboard.left){ System.out.println("izquierda"); }
+        if(keyboard.right){ System.out.println("derecha"); }
+
         aps++;
     }
     public void showIt(){
@@ -76,6 +69,7 @@ public class Home extends Canvas implements  Runnable{
         long refereceCounter = System.nanoTime();
         double timeRunning;
         double delta = 0;
+        requestFocus();
 
         while(itsOn){
             final long initLoop = System.nanoTime();
