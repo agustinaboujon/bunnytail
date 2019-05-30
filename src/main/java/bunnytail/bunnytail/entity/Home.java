@@ -1,5 +1,7 @@
 package bunnytail.bunnytail.entity;
 
+import bunnytail.bunnytail.controller.Keyboard;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -11,12 +13,16 @@ public class Home extends Canvas implements  Runnable{
     private static int fps = 0;
     private static JFrame window;
     private static Thread thread;
+    private static Keyboard keyboard;
     private static volatile boolean itsOn = false;
     private static final String NAME = "Bunny Tail";
 
 
     public Home(){
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
+
+        keyboard = new Keyboard();
+        addKeyListener(keyboard);
 
         window  = new JFrame(NAME);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
