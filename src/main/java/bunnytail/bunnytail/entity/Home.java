@@ -29,6 +29,7 @@ public class Home extends Canvas implements  Runnable{
             BufferedImage.TYPE_INT_RGB);
     private static int[] pixels = ((DataBufferInt)image.getRaster()
              .getDataBuffer()).getData();
+    private static  final ImageIcon icon = new ImageIcon(Home.class.getResource("/textures/icon.png"));
 
 
     public Home(){
@@ -64,10 +65,10 @@ public class Home extends Canvas implements  Runnable{
     }
     public void update(){
         keyboard.update();
-        if(keyboard.up){ System.out.println("arriba"); }
-        if(keyboard.down){ System.out.println("abajo"); }
-        if(keyboard.left){ System.out.println("izquierda"); }
-        if(keyboard.right){ System.out.println("derecha"); }
+        if(keyboard.up){ y++; }
+        if(keyboard.down){ y--;}
+        if(keyboard.left){ x++; }
+        if(keyboard.right){ x--; }
 
         aps++;
     }
