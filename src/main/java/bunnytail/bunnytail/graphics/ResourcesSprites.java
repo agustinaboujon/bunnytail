@@ -12,7 +12,7 @@ public class ResourcesSprites {
     public static ResourcesSprites texture;
     static {
         try {
-            texture = new ResourcesSprites("/textures/sprites.png", 320, 320);
+            texture = new ResourcesSprites("/textures/sprite.png", 320, 320);
         } catch (IOException e) {
             e.printStackTrace();
         }
