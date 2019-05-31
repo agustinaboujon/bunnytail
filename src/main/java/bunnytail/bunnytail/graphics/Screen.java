@@ -17,4 +17,17 @@ public class Screen {
             pixels[i] = 0;
         }
     }
+
+    public void showIt(final int compX, final int compY){
+         for(int y = 0; y < height; y++){
+             int positionY = y + compY;
+             if(positionY < 0 || positionY >= height){
+                 continue;
+             }
+             for(int x = 0; x < width; x++){
+                 int positionX = x + compX;
+
+             }
+         }
+    }
 }
