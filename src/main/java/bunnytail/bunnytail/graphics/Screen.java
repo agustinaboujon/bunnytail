@@ -26,6 +26,9 @@ public class Screen {
              }
              for(int x = 0; x < width; x++){
                  int positionX = x + compX;
+                 if(positionX < 0 || positionX >= width){
+                     continue;
+                 }
 
              }
          }
