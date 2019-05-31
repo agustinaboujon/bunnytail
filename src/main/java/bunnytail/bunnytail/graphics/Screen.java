@@ -1,4 +1,5 @@
 package bunnytail.bunnytail.graphics;
+import bunnytail.bunnytail.graphics.Sprite;
 
 public class Screen {
     private final int width;
@@ -34,8 +35,8 @@ public class Screen {
                      continue;
                  }
                  //Test
-                 pixels[positionX + positionY + width] = Sprite.grass.pixels[(x & MASK_SPRITE)
-                         + (y & MASK_SPRITE) * SIDE_SPRITE];
+                     pixels[positionX + positionY * width] = Sprite.grass.pixels[(x & MASK_SPRITE)
+                             + (y & MASK_SPRITE) * SIDE_SPRITE];
 
              }
          }

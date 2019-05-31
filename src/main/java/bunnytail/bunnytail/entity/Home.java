@@ -22,6 +22,7 @@ public class Home extends Canvas implements  Runnable{
     private static Thread thread;
     private static Keyboard keyboard;
     private static Screen screen;
+
     private static volatile boolean itsOn = false;
     private static final String NAME = "Bunny Tail";
     private static BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
@@ -33,7 +34,7 @@ public class Home extends Canvas implements  Runnable{
     public Home(){
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
 
-        Screen screen = new Screen(WIDTH, HEIGHT);
+        screen = new Screen(WIDTH, HEIGHT);
 
         keyboard = new Keyboard();
         addKeyListener(keyboard);
