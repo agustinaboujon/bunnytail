@@ -7,6 +7,8 @@ public class Sprite {
     public int[] pixels;
     private final ResourcesSprites resource;
 
+    public static  Sprite grass = new Sprite(32, 0,0, ResourcesSprites.grass);
+
     public Sprite(final int arist, final int colum, final int row, final ResourcesSprites resource){
         this.arist = arist;
         this.pixels = new int[arist * arist];

@@ -5,6 +5,10 @@ public class Screen {
     private final int height;
     public final int[] pixels;
 
+    //Test
+    private final static int SIDE_SPRITE = 32;
+    private final static int MASK_SPRITE = SIDE_SPRITE - 1;
+
     public Screen(final int width, final int height){
         this.width = width;
         this.height = height;
@@ -29,6 +33,9 @@ public class Screen {
                  if(positionX < 0 || positionX >= width){
                      continue;
                  }
+                 //Test
+                 pixels[positionX + positionY + width] = Sprite.grass.pixels[(x & MASK_SPRITE)
+                         + (y & MASK_SPRITE) * SIDE_SPRITE];
 
              }
          }

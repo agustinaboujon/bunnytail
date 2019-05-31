@@ -9,6 +9,16 @@ public class ResourcesSprites {
     private final int height;
     public final int[] pixels;
 
+    public static ResourcesSprites grass;
+
+    static {
+        try {
+            grass = new ResourcesSprites("/textures/sprite.png", 320, 320);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public ResourcesSprites(final String route, final int width, final int height) throws IOException {
         this.height = height;
         this.width = width;
