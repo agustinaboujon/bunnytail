@@ -48,6 +48,7 @@ public class Home extends Canvas implements  Runnable{
         window.pack();
         window.setLocationRelativeTo(null);
         window.setVisible(true );
+        window.setIconImage(icon.getImage());
     }
 
     public synchronized void init(){
