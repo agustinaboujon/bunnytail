@@ -1,9 +1,13 @@
 package bunnytail.bunnytail.entity;
 
 import bunnytail.bunnytail.controller.Keyboard;
+import bunnytail.bunnytail.graphics.Screen;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.image.BufferStrategy;
+import java.awt.image.BufferedImage;
+import java.awt.image.DataBufferInt;
 
 public class Home extends Canvas implements  Runnable{
     private static final long serialVersionId = 1L;
@@ -11,15 +15,25 @@ public class Home extends Canvas implements  Runnable{
     private static final int WIDTH = 800;
     private static int aps = 0;
     private static int fps = 0;
+    private static int x = 0;
+    private static int y = 0;
+
     private static JFrame window;
     private static Thread thread;
     private static Keyboard keyboard;
+    private static Screen screen;
     private static volatile boolean itsOn = false;
     private static final String NAME = "Bunny Tail";
+    private static BufferedImage image = new BufferedImage(WIDTH, HEIGHT,
+            BufferedImage.TYPE_INT_RGB);
+    private static int[] pixels = ((DataBufferInt)image.getRaster()
+             .getDataBuffer()).getData();
 
 
     public Home(){
         setPreferredSize(new Dimension(HEIGHT, WIDTH));
+
+        Screen screen = new Screen(WIDTH, HEIGHT);
 
         keyboard = new Keyboard();
         addKeyListener(keyboard);
@@ -57,6 +71,23 @@ public class Home extends Canvas implements  Runnable{
         aps++;
     }
     public void showIt(){
+        BufferStrategy strategy = getBufferStrategy();
+        if(strategy == null){
+            createBufferStrategy(3);
+            return;
+        }
+
+        screen.clean();
+        screen.showIt(x , y);
+
+        System.arraycopy(screen.pixels,0, pixels, 0, pixels.length);
+
+        Graphics g = strategy.getDrawGraphics();
+        g.drawImage(image, 0, 0, getWidth(), getHeight(), null);
+        g.dispose();
+
+        strategy.show();
+
         fps++;
     }
 
